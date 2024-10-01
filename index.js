@@ -72,7 +72,12 @@ function addBookToLibrary() {
         const statusBtn = document.createElement('button');
         statusBtn.textContent = 'Change status'
 
- 
+        statusBtn.addEventListener('click', ()=>{
+            book.status = !book.status;
+            statusBtn .textContent = 'Change status'
+            status.textContent = `Status : ${book.status ? 'Read' : 'Yet to read'}`
+        })
+
         
         
         const deletBtn = document.createElement('button');
