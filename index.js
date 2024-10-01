@@ -77,7 +77,14 @@ function addBookToLibrary() {
         
         const deletBtn = document.createElement('button');
         deletBtn.textContent = 'Delete'
-     
+        deletBtn.addEventListener('click', ()=>{
+            let indexToBeDelted = myBooks.indexOf(book);
+            myBooks.splice(indexToBeDelted, 1);
+            addBookToLibrary();
+            console.log(myBooks)
+            
+        })
+    
         div.appendChild(title);
         div.appendChild(author);
         div.appendChild(pages);
