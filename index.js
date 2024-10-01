@@ -43,7 +43,38 @@ myBooks.push(book3);
 
 addBookToLibrary();
 
+function getFormDetails(){
+    let title = bookTitle.value;
+    let author = bookAuthor.value;
+    let pages = bookPages.value;
+    let status = bookStatus.checked;
+    
+    let book = new Book(title, author, pages, status);
+    console.log(book)
+    myBooks.push(book);
 
+    
+    
+}
+
+formSubmitButton.addEventListener('click',(e)=>{
+    e.preventDefault();
+    if(form.checkValidity()){
+        getFormDetails();
+        addBookToLibrary();
+        
+        bookTitle.value = '';
+        bookAuthor.value = '';
+        bookPages.value = '';
+        bookStatus.checked = '';
+        modal.close();
+
+    }else{
+        form.reportValidity()
+    }
+    
+
+})
 
 
 
