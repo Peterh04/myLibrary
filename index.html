@@ -3,9 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>myLibrary</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="/index.js" defer></script>
 </head>
 <body>
+    <header>
+        <h1>Your book Shelf</h1>
+        <div class="bookNumber">
+            <img src="/icons/book-bookmark-svgrepo-com.svg" alt="book image">
+            <p><span class="numberBooks">10</span> books</p>
+        </div>
+    </header>
+    <button class="addBtn"><img src="/icons/plus-svgrepo-com.svg" alt="add button image"></button>
+    <div class="displayShelf"></div>
+    <dialog id="myModal">
+        <div class="modal">
+            <form action="" method="post" id="formModal" autocomplete="off>
+                <label for="bookTitle" >Title</label>
+                <input type="text" name="bookTitle" id="bookTitle" placeholder="Title" required>
+                <label for="bookAuthor" >Author</label>
+                <input type="text" name="bookAuthor" id="bookAuthor" placeholder="Author" required>
+                <label for="bookPages">Pages</label>
+                <input type="number" name="bookPages" id="bookPages" placeholder="Pages" required>
+                <div class="status">
     
+                    <label for="bookStatus">Have you read it?</label>
+                    <p>Read?</p>
+                    <input type="checkbox" name="bookStatus" id="bookStatus" placeholder="Title">
+                </div>
+                <button type="submit" id="formSubmitButton">Submit</button>
+                <button class="closeBtn" type="button">close</button>
+            </form>
+    
+        </div>
+
+    
+    </dialog>
+    <dialog class="errorDialog">
+        <div class="errorBox">
+            <p>Book already exists!</p>
+        </div>
+
+    </dialog>
+  
+
 </body>
 </html>
