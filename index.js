@@ -9,6 +9,8 @@ const bookAuthor = document.querySelector('#bookAuthor');
 const bookPages = document.querySelector('#bookPages');
 const bookStatus = document.querySelector('#bookStatus');
 const numberBooks = document.querySelector('.numberBooks');
+const errorDialog = document.querySelector('.errorDialog');
+
 
 
 
@@ -29,6 +31,8 @@ closeBtn.addEventListener('click', ()=>{
     modal.close();
 })
 
+
+
 const myBooks = [];
 
 function Book(title, author, pages, status){
@@ -38,17 +42,6 @@ function Book(title, author, pages, status){
     this.status = status;
 }
 
-
-const book1 = new Book('Rich Dad Poor Dad', 'Robert Kiyosaki', 200, true)
-const book2 = new Book('Manifest: 7 steps', 'Roxie Nafousi', 250, false)
-const book3  = new Book('Pride and Prejudice', 'Jane Austin', 300, false);
-
-
-
-
-myBooks.push(book1);
-myBooks.push(book2);
-myBooks.push(book3);
 
 numberBooks.textContent = myBooks.length;
 
@@ -60,6 +53,13 @@ function getFormDetails(){
     let pages = bookPages.value;
     let status = bookStatus.checked;
     
+    if (myBooks.some(book => book.title === title && book.author === author)){
+        errorDialog.showModal()
+        setTimeout(()=>{
+            errorDialog.close()
+        }, 700)
+        return;
+    }
     let book = new Book(title, author, pages, status);
 
 
