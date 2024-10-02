@@ -7,20 +7,29 @@ const formSubmitButton = document.querySelector('#formSubmitButton');
 const bookTitle = document.querySelector('#bookTitle');
 const bookAuthor = document.querySelector('#bookAuthor');
 const bookPages = document.querySelector('#bookPages');
-const bookStatus = document.querySelector('#bookStatus')
+const bookStatus = document.querySelector('#bookStatus');
+const numberBooks = document.querySelector('.numberBooks');
+
 
 
 addBtn.addEventListener('click', ()=>{
     modal.showModal();
 })
 
+addBtn.addEventListener('click', ()=>{
+    addBtn.classList.add('animate');
+
+        setTimeout(()=>{
+            addBtn.classList.remove('animate')
+        }, 200)
+})
+
 
 closeBtn.addEventListener('click', ()=>{
-   modal.close();
+    modal.close();
 })
 
 const myBooks = [];
-
 
 function Book(title, author, pages, status){
     this.title = title;
@@ -41,6 +50,8 @@ myBooks.push(book1);
 myBooks.push(book2);
 myBooks.push(book3);
 
+numberBooks.textContent = myBooks.length;
+
 addBookToLibrary();
 
 function getFormDetails(){
@@ -50,11 +61,13 @@ function getFormDetails(){
     let status = bookStatus.checked;
     
     let book = new Book(title, author, pages, status);
-    console.log(book)
+
+
     myBooks.push(book);
 
     
     
+   
 }
 
 formSubmitButton.addEventListener('click',(e)=>{
@@ -72,6 +85,8 @@ formSubmitButton.addEventListener('click',(e)=>{
     }else{
         form.reportValidity()
     }
+    
+    numberBooks.textContent = myBooks.length;
     
 
 })
@@ -101,6 +116,7 @@ function addBookToLibrary() {
 
         
         const statusBtn = document.createElement('button');
+        statusBtn.classList.add('statusBtn')
         statusBtn.textContent = 'Change status'
 
         statusBtn.addEventListener('click', ()=>{
@@ -117,7 +133,9 @@ function addBookToLibrary() {
             let indexToBeDelted = myBooks.indexOf(book);
             myBooks.splice(indexToBeDelted, 1);
             addBookToLibrary();
-            console.log(myBooks)
+           
+
+            numberBooks.textContent = myBooks.length;
             
         })
     

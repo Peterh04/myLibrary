@@ -63,11 +63,44 @@ body{
     flex-direction: column;
     position: relative;
 
-    margin: 10px;
+   
 
     background-color: hsl(23, 44%, 71%);
     min-height: 100vh;
+
+    font-family: "Hind Siliguri", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     
+  }
+
+  header{
+    display: flex;
+    position: fixed;
+    width: 100%;
+
+   
+    align-items: center;
+    justify-content: space-between;
+
+
+    background-color: hsl(21, 28%, 62%);
+    height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    >h1{
+      font-family: 'Lobster', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+  
+  }
+  
+  img{
+    height: 40px;
+    width: 50px;
+   
   }
 
   label{
@@ -82,9 +115,15 @@ body{
     border: 0;
   }
 
+  button{
+
+  }
+
 .displayShelf{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    margin-top: 70px;
     
     
 }
@@ -116,7 +155,21 @@ button{
     border-radius: 10px;
 
     cursor: pointer;
-}
+
+    background: wheat;
+    border: transparent;
+
+    transition: background 0.3s ease-in;
+
+  }
+
+  button:hover{
+ 
+    background: rgb(228, 213, 183);
+  }
+
+ 
+
 
 
 #myModal{
@@ -137,6 +190,8 @@ button{
 
    align-items: center;
     justify-content: center; 
+
+ 
 }
 
 
@@ -150,13 +205,71 @@ button{
     
 
     justify-content: space-around;
-
+    align-items: center;
    
+    >input{
+      width: 100%;
+    }
+
+    >button{
+      background: wheat;
+      border: transparent;
+
+      transition: background 0.3s ease-in;
+
+    }
+    >button:hover{
+      background: rgb(228, 213, 183);
+    }
     
 }
+
+#formModal input {
+  border: none;
+  border-style: none;
+  outline: none;
+
+}
+
+
 
 
 .status{
     display: flex;
     
+}
+
+.statusBtn{
+  width: 120px;
+  padding: 10px;
+}
+
+.bookNumber{
+  display: flex;
+  align-items: center;
+
+  font-size: 1.4rem;
+  color: rgb(80, 79, 79);
+}
+
+.addBtn{
+  
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background: wheat;
+  border: transparent;
+
+  position: fixed;
+
+  bottom: 0;
+  right: 0;
+
+  margin-bottom: 20px;
+  margin-right: 20px;
+  
+}
+
+.animate{
+  transform: translateY(-5px);
 }
